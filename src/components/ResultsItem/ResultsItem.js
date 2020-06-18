@@ -8,14 +8,10 @@ class ResultsItem extends Component{
 
     addToFavorite = (url) => {
         console.log('this will add to favorite DB')
-        this.props.dispatch({ type: 'ADD_FAVORITE', payload:{ url:url, category:this.state}});
-
-        this.setState({
-            category:''
-        })
+        this.props.dispatch({ type: 'ADD_FAVORITE', payload:{ url:url, category:this.state.category}});
     }
 
-    handleChange(event){
+    handleChange = (event) =>{
         this.setState({
             category:event.target.value
         })
@@ -27,8 +23,8 @@ class ResultsItem extends Component{
             <div>
                <img alt={this.props.gif.title} src= {gifPic}/>
                    <br/>
-                   <select onChange={(event)=>this.handleChange}>
-                        <option value=""><span aria-label="red heart" role="img">❤️</span></option>
+                   <select value={this.state.category} onChange={(event)=>this.handleChange(event)}>
+                        <option value="">category</option>
                        <option value="1">funny</option>
                        <option value="2">cohort</option>
                        <option value="3">cartoon</option>
