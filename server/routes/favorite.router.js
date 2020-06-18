@@ -4,8 +4,6 @@ const axios = require("axios");
 require("dotenv").config();
 
 
-const router = express.Router();
-
 // return all favorite images
 router.get('/', (req, res) => {
   res.sendStatus(200);
