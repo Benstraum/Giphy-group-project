@@ -23,7 +23,8 @@ function* rootSaga() {
   }
 
   function* getSearch(action){
-    const searchResponse = yield axios.get(`api/search`, action.payload)
+    let searchTerm = action.payload;
+    const searchResponse = yield axios.get(`api/search/${searchTerm}`)
     yield put({ type: 'SET_SEARCH', payload: searchResponse.data });
   }
   function* getAllFavorites(){
