@@ -9,7 +9,7 @@ export class Results extends Component {
         return (
             <div>
                 <ul>
-                    {this.props.reduxState.giphyState.map(gif => {
+                    {this.props.reduxState.giphySearch.map(gif => {
                         return (
                             <ResultsItem key={gif.id} gif={gif} />
                         );
