@@ -54,7 +54,7 @@ const giphySearch = (state = [], action) => {
     switch (action.type) {
         case 'SET_SEARCH':
             console.log(action.payload)
-            return action.payload
+            return action.payload.data
      
     default:
         console.log('default state')
@@ -66,7 +66,7 @@ const giphySearch = (state = [], action) => {
         switch (action.type) {
             case 'SET_FAVORITES':
                 console.log(action.payload)
-                return action.payload
+                return action.payload.data
         default:
             console.log('default state')
                 return state;
