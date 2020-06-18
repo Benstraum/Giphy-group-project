@@ -23,7 +23,8 @@ function* rootSaga() {
   }
 
   function* getSearch(action){
-    const searchResponse = yield axios.post(`api/search`, action.payload)
+    let searchTerm = action.payload;
+    const searchResponse = yield axios.get(`api/search/${searchTerm}`)
     yield put({ type: 'SET_SEARCH', payload: searchResponse.data });
   }
   function* getAllFavorites(){
@@ -49,22 +50,31 @@ function* rootSaga() {
 
 const sagaMiddleware = createSagaMiddleware();
 
-const giphyState = (state = [], action) => {
+const giphySearch = (state = [], action) => {
     switch (action.type) {
         case 'SET_SEARCH':
             console.log(action.payload)
             return action.payload
-        case 'SET_FAVORITES':
-            console.log(action.payload)
-            return action.payload
+     
     default:
         console.log('default state')
             return state;
             }
     };
 
+    const giphyFavorites = (state = [], action) => {
+        switch (action.type) {
+            case 'SET_FAVORITES':
+                console.log(action.payload)
+                return action.payload
+        default:
+            console.log('default state')
+                return state;
+                }
+        };
+
     const store = createStore(
-        combineReducers({ giphyState }),
+        combineReducers({ giphySearch,giphyFavorites}),
         applyMiddleware(sagaMiddleware, logger),
     );
     sagaMiddleware.run(rootSaga);
