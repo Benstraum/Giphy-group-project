@@ -16,9 +16,11 @@ export class FavoriteItem extends Component {
     render() {
         return (
             <div>
-                    <h1>{this.props.gif.id}</h1>    
-                    <button onClick={this.removeFromFavorites}>Remove from Favorites</button> 
-                    <button onClick={this.deleteGiphy}>Delete</button>
+          
+            <img alt={this.props.gif.id} src= {this.props.gif.url}/>
+            <br/>
+                    <button onClick={()=>this.removeFromFavorites}>Remove from Favorites</button> 
+                    <button onClick={()=>this.deleteGiphy}>Delete Favorite</button>
             </div>
         );//end return
     }//end render

@@ -5,16 +5,18 @@ import {connect} from 'react-redux';
 
 export class FavoritesList extends Component {
     componentDidMount(){
-        this.props.dispatch({type: })
+        console.log(this.props.reduxState)
+        this.props.dispatch({type:'GET_ALL_FAVORITES'})
     }
     
     render() {
         return (
             <div>
                 <ul>
-                {this.props.reduxState.giphyState.map(gif =>{
+                {this.props.reduxState.giphyFavorites.map((gif, i) =>{
                     return(
-                        <FavoriteItem key={gif.id} gif={gif}/>
+                        <FavoriteItem key={i} gif={gif}/>
+                        
                     );
                 })}
                 </ul> 
