@@ -41,9 +41,11 @@ You will need 2 views for the Base Features. You should put some thought into th
 - Allow a user to set a category for a favorite image.
     - Each favorite image can only have 1 category at a time.
     - The category needs to be one of the categories in the database.
-
+check
 
 ## Existing Routes
+IM ADDING STUFF
+
 
 You are given two router modules on the server with stubs for the routes you may need.
 
