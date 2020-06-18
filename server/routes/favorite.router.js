@@ -1,27 +1,9 @@
 const express = require("express");
 const router = express.Router();
-<<<<<<< HEAD
-const axios = require("axios");
-const pool = require('../modules/pool');
-=======
 const pool = require("../modules/pool");
->>>>>>> 0702a1ad40e2ccdab259f426c3ddcdea459525be
 require("dotenv").config();
 
 // return all favorite images
-<<<<<<< HEAD
-router.get('/', (req, res) => {
-  const queryText = `SELECT * FROM favorites`
-  pool.query(queryText)
-  .then(result => {
-    console.log(result)
-    res.send(result.rows)
-  })
-  .catch(error => {
-    console.log("ERROR SELECT favorites DB QUERY", error);
-    res.sendStatus(500);
-  })
-=======
 router.get("/", (req, res) => {
   const queryText = `SELECT * FROM favorites`;
   pool
@@ -34,7 +16,6 @@ router.get("/", (req, res) => {
       console.log("ERROR SELECT favorites DB QUERY", error);
       res.sendStatus(500);
     });
->>>>>>> 0702a1ad40e2ccdab259f426c3ddcdea459525be
 });
 
 // add a new favorite
