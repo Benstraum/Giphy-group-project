@@ -1,0 +1,29 @@
+.navBar   ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    background-color: #333;
+  }
+  
+  .navBar ol li {
+    margin-left: auto;
+    margin-right: auto;
+    width:50%;
+   display: inline-block;
+  }
+  
+  .navBar ol li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  .navBar ol li a:hover {
+    background-color: #111;
+  }
+ .navBar{
+     width: 100%;
+ }
