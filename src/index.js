@@ -15,11 +15,36 @@ import App from './components/App/App';
 
 function* rootSaga() {
     yield takeEvery('GET_SEARCH', getSearch)
+    yield takeEvery('GET_ALL_FAVORITES', getAllFavorites)
+    yield takeEvery('GET_FAVORITE', getCatagoryFavorite)
+    yield takeEvery('ADD_FAVORITE', addToFavorite)
+    yield takeEvery('REMOVE_FAVORITE', removeFavorite)
+    yield takeEvery('DELETE_GIPHY', deleteFavorite)
   }
 
   function* getSearch(action){
     const searchResponse = yield axios.post(`api/search`, action.payload)
     yield put({ type: 'SET_SEARCH', payload: searchResponse.data });
+  }
+  function* getAllFavorites(){
+    const favoriteResponse = yield axios.get(`api/favorite`)
+    yield put({ type: 'SET_FAVORITES', payload: favoriteResponse.data });
+  }
+  function* getCatagoryFavorite(action){
+    const favoriteResponse = yield axios.post(`api/favorite/${action.payload}`)
+    yield put({ type: 'SET_FAVORITES', payload: favoriteResponse.data });
+  }
+  function* addToFavorite(action){
+    yield axios.post(`/api/favorite`, action.payload)
+    put({ type: 'SET_FAVORITES'})
+  }
+  function* removeFavorite(action){
+    yield axios.put(`/api/favorite/${action.payload}`)
+    put({ type: 'SET_FAVORITES'})
+  }
+  function* deleteFavorite(action){
+    yield axios.delete(`/api/favorite/${action.payload}`)
+    put({ type: 'SET_FAVORITES'})
   }
 
 const sagaMiddleware = createSagaMiddleware();
