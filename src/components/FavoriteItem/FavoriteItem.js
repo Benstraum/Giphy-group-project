@@ -22,12 +22,13 @@ export class FavoriteItem extends Component {
     category: "",
   }; //end
 
-  updateFavorite = (url) => {
+  updateFavorite = (id) => {
     console.log("this will update favorite in DB");
     this.props.dispatch({
       type: "UPDATE_FAVORITE",
-      payload: { url: url, category: this.state.category },
+      payload: {category: this.state.category, id: id}
     });
+    
   };
 
   handleChange = (event) => {
@@ -56,7 +57,7 @@ export class FavoriteItem extends Component {
             <option value="4">nsfw</option>
             <option value="5">meme</option>
           </select>
-          <button onClick={this.updateFavorite}>Update Category</button>
+          <button onClick={this.updateFavorite(this.props.gif.id)}>Update Category</button>
         </div>
       </div>
     ); //end return
