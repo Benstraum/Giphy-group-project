@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 
 
 export class FavoritesList extends Component {
-    componentDidMount(){
-        this.props.dispatch({type: })
-    }
+    // componentDidMount(){
+    //     this.props.dispatch({type: })
+    // }
     
     render() {
         return (
