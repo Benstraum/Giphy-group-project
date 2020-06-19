@@ -6,7 +6,6 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <Header />
         <SearchForm/>
         <Results/>
       </div>
