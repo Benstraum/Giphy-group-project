@@ -27,3 +27,9 @@
  .navBar{
      width: 100%;
  }
+
+ .alignSearch{
+  align-items: center;
+  display: inline-block;
+  justify-content: center;
+}
