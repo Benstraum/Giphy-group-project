@@ -10,6 +10,7 @@ import {
   Select,
   InputLabel,
 } from "@material-ui/core";
+import Swal from 'sweetalert2';
 import "../FavoriteItem/FavoriteItem.css";
 export class FavoriteItem extends Component {
   removeFromFavorites = (id) => {
@@ -22,11 +23,33 @@ export class FavoriteItem extends Component {
 
   deleteGiphy = (id) => {
     console.log("this will be a DELETE request");
-    this.props.dispatch({
-      type: "DELETE_GIPHY",
-      payload: id,
-    });
-    this.props.dispatch({ type: "GET_ALL_FAVORITES" });
+    Swal.fire({
+        title: 'Are you sure?',
+        text: 'You will not be able to recover this imaginary file!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, keep it'
+      }).then((result) => {
+        if (result.value) {
+          Swal.fire(
+            'Deleted!',
+            'That gif was deleted.',
+            'success',
+            this.props.dispatch({
+                type: "DELETE_GIPHY",
+                payload: id,
+              }),
+              this.props.dispatch({ type: "GET_ALL_FAVORITES" }),
+          )
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          Swal.fire(
+            'Cancelled',
+            'Your gif is safe :)',
+            'error'
+          )
+        }
+      })
   }; //end delete
 
   state = {
