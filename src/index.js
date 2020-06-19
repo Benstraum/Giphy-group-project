@@ -18,7 +18,7 @@ function* rootSaga() {
     yield takeEvery('GET_ALL_FAVORITES', getAllFavorites)
     yield takeEvery('GET_FAVORITE', getCatagoryFavorite)
     yield takeEvery('ADD_FAVORITE', addToFavorite)
-    yield takeEvery('REMOVE_FAVORITE', removeFavorite)
+    yield takeEvery('UPDATE_FAVORITE', updateFavorite)
     yield takeEvery('DELETE_GIPHY', deleteFavorite)
   }
 
@@ -39,8 +39,8 @@ function* rootSaga() {
     yield axios.post(`/api/favorite`, action.payload)
     put({ type: 'SET_FAVORITES'})
   }
-  function* removeFavorite(action){
-    yield axios.put(`/api/favorite/${action.payload}`)
+  function* updateFavorite(action){
+    yield axios.put(`/api/favorite/${action.payload.id}`, action.payload)
     put({ type: 'SET_FAVORITES'})
   }
   function* deleteFavorite(action){
@@ -66,7 +66,7 @@ const giphySearch = (state = [], action) => {
         switch (action.type) {
             case 'SET_FAVORITES':
                 console.log(action.payload)
-                return action.payload.data
+                return action.payload
         default:
             console.log('default state')
                 return state;

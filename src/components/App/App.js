@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { HashRouter as Router, Route } from "react-router-dom";
-import "./App.css";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 import Search from "../Search/Search";
-import { FavoriteItem } from "../FavoriteItem/FavoriteItem";
+import  FavoritesList  from "../FavoritesList/FavoritesList";
+import "./App.css";
 
 
 class App extends Component {
@@ -11,8 +11,18 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <div className='navBar'>
+          <ol>
+            <li>
+            <Link to="/" >Home/Search</Link>
+            </li>
+            <li>
+            <Link to="/favorites">Fav's</Link>
+            </li>
+          </ol>
+          </div>
           <Route exact path="/" component={Search} />
-          <Route path="/favorites" component={FavoriteItem} />          
+          <Route path="/favorites" component={FavoritesList} />          
         </div>
       </Router>
     );
