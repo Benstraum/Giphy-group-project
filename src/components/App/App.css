@@ -30,20 +30,49 @@
     background-color: rgb(1, 0, 87);
   }
 
-  .navBar{
-  
-    width: 100%;
-  }
+ .alignSearch{
+  align-items: center;
+  display: inline-block;
+  justify-content: center;
+}
+
+img{
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.gifCards{
+  display: inline-block;
+  margin: 3%;
+  align-items: center;
+}
+
+.gifItems{
+  max-height: 200px;
+  max-width: 200px;
+  margin: auto;
+}
+.centerItems{
+  align-items: center;
+  justify-content: center;
+}
+
+.mw-120 {
+  min-width: 120px;
+}
+.navBar{
+  width: 100%;
+}
 .MuiToolbar-root{
-  background-color: black;
-  width:100%;
+background-color: black;
+width:100%;
 }
 .logo{
-  width:30px
+width:30px
 }
 ol li img{
- object-fit: contain;
-  padding: 0;
-  margin-bottom: -10px;
-  height:40px;
+object-fit: contain;
+padding: 0;
+margin-bottom: -10px;
+height:40px;
 }
