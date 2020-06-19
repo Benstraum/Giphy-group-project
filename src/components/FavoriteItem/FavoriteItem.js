@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Button, TextField, Typography, Grid } from "@material-ui/core";
+
 export class FavoriteItem extends Component {
   removeFromFavorites = (id) => {
     console.log("this will be an PUT request");
@@ -54,12 +56,18 @@ export class FavoriteItem extends Component {
             <option value="4">nsfw</option>
             <option value="5">meme</option>
           </select>
-          <button onClick={() => this.deleteGiphy(this.props.gif.id)}>
-            Delete Favorite
-          </button>
-          <button onClick={() => this.updateFavorite(this.props.gif.id)}>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={() => this.updateFavorite(this.props.gif.id)}
+          >
             Update Category
-          </button>
+          </Button>
+          <Button
+          color="secondary"
+          variant="contained" onClick={() => this.deleteGiphy(this.props.gif.id)}>
+            Delete Favorite
+          </Button>
         </div>
       </div>
     ); //end return
