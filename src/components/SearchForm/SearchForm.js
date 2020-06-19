@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import './SearchForm.css';
+import SearchIcon from '@material-ui/icons/Search';
+import { Button, TextField, Typography } from '@material-ui/core';
 
 class SearchForm extends Component {
   state = {
@@ -25,16 +28,17 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <div>
-        <span>Find GIFs: </span>
-        <input
-          type="text"
-          placeholder="What's your flavor?"
-          onChange={this.handleSearchInput}
-        />
-        <button onClick={this.setSearch} type="submit">
-          Search
-        </button>
+      <div className="alignSearch">
+        <form className="centerSearch">
+          <Typography variant="h5" className="underline">
+            Find GIFs: 
+          
+          <TextField size="small" label="What's your flavor?" variant="outlined" onChange={this.handleSearchInput} />
+          <Button size="large" variant="contained" color="primary" aria-label="search for giphy" onClick={this.setSearch}>
+            <SearchIcon />
+          </Button>
+          </Typography>
+        </form>
       </div>
     );
   }
