@@ -33,3 +33,28 @@
   display: inline-block;
   justify-content: center;
 }
+
+img{
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.gifCards{
+  display: inline-block;
+  margin: 3%;
+  align-items: center;
+}
+
+.gifItems{
+  max-height: 200px;
+  max-width: 200px;
+  margin: auto;
+}
+.centerItems{
+  align-items: center;
+  justify-content: center;
+}
+
+.mw-120 {
+  min-width: 120px;
+}
