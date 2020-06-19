@@ -5,11 +5,10 @@ require("dotenv").config();
 
 // return all favorite images
 router.get("/", (req, res) => {
-  const queryText = `SELECT * FROM favorites`;
+  const queryText = `SELECT * FROM favorites ORDER BY id ASC`;
   pool
     .query(queryText)
     .then((result) => {
-      console.log(result);
       res.send(result.rows);
     })
     .catch((error) => {
@@ -34,6 +33,7 @@ router.post("/", (req, res) => {
 });
 
 // update given favorite with a category id
+<<<<<<< HEAD
 router.put("/:favId", (req, res) => {
   queryText = `UPDATE favorites SET "category_id" = $1 WHERE "id" = $2`
   console.log(req.body, req.body.category, req.param.favId);
@@ -45,6 +45,20 @@ router.put("/:favId", (req, res) => {
       res.sendStatus(500);
     })
 })
+=======
+
+  router.put("/:favId", (req, res) => {
+    queryText = `UPDATE favorites SET "category_id" = $1 WHERE "id" = $2`
+    console.log('this is req.body',req.body);
+    pool.query(queryText, [req.body.category, req.body.id])
+      .then(result => {
+        res.sendStatus(200);
+      })
+      .catch(error => {
+        res.sendStatus(500);
+      })
+  })
+>>>>>>> ad4bb0588ef16cc9169827c882729af91def425e
 
 // delete a favorite
 router.delete("/:id", (req, res) => {

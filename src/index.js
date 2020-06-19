@@ -40,7 +40,11 @@ function* rootSaga() {
     put({ type: 'SET_FAVORITES'})
   }
   function* updateFavorite(action){
+<<<<<<< HEAD
     yield axios.put(`/api/favorite/${action.payload.id}`, action.payload.category)
+=======
+    yield axios.put(`/api/favorite/${action.payload.id}`, action.payload)
+>>>>>>> ad4bb0588ef16cc9169827c882729af91def425e
     put({ type: 'SET_FAVORITES'})
   }
   function* deleteFavorite(action){
