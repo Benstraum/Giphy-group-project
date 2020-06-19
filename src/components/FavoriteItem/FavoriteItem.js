@@ -26,10 +26,9 @@ export class FavoriteItem extends Component {
     console.log("this will update favorite in DB");
     this.props.dispatch({
       type: "UPDATE_FAVORITE",
-      payload:{category:this.state.category, id:id}
-    
+      payload: { category: this.state.category, id: id },
     });
-    this.props.dispatch({type:'GET_ALL_FAVORITES'})
+    this.props.dispatch({ type: "GET_ALL_FAVORITES" });
   };
 
   handleChange = (event) => {
@@ -44,9 +43,6 @@ export class FavoriteItem extends Component {
         <div>
           <img alt={this.props.gif.id} src={this.props.gif.url} />
           <br />
-          <button onClick={() => this.deleteGiphy(this.props.gif.id)}>
-            Delete Favorite
-          </button>
           <select
             value={this.state.category}
             onChange={(event) => this.handleChange(event)}
@@ -58,7 +54,12 @@ export class FavoriteItem extends Component {
             <option value="4">nsfw</option>
             <option value="5">meme</option>
           </select>
-          <button onClick={()=>this.updateFavorite(this.props.gif.id)}>Update Category</button>
+          <button onClick={() => this.deleteGiphy(this.props.gif.id)}>
+            Delete Favorite
+          </button>
+          <button onClick={() => this.updateFavorite(this.props.gif.id)}>
+            Update Category
+          </button>
         </div>
       </div>
     ); //end return
