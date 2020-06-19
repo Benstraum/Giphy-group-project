@@ -13,25 +13,9 @@ class App extends Component {
   render() {
     return (
       <Router> <div>
+        <Header />
         <AppBar position="static">
-            <Toolbar>
-          <div className='navBar'>
-         
-          <ol>
-            <li>
-            <img alt="giphy logo svg"src={image}></img>
-            </li>
-            <li >
-              <h3>Group Giphy Project</h3>
-            </li>
-            <li className="link">
-            <Link to="/" >Home/Search</Link>
-            </li>
-            <li className="link">
-            <Link to="/favorites">Fav's</Link>
-            </li>
-          </ol>
-          </div>
+          <Toolbar>
           </Toolbar>
           </AppBar>
           <Route exact path="/" component={Search} />
