@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import './SearchForm.css';
 import SearchIcon from '@material-ui/icons/Search';
-import { Button, TextField, Typography } from '@material-ui/core';
+import { Button, TextField, Typography, Grid } from '@material-ui/core';
 
 class SearchForm extends Component {
   state = {
@@ -28,7 +28,9 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <div className="alignSearch">
+      <div>
+        <Grid container justify="center">
+        <Grid item>
         <form className="centerSearch">
           <Typography variant="h5" className="underline">
             Find GIFs: 
@@ -39,6 +41,8 @@ class SearchForm extends Component {
           </Button>
           </Typography>
         </form>
+        </Grid>
+        </Grid>
       </div>
     );
   }
