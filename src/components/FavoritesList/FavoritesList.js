@@ -7,6 +7,7 @@ export class FavoritesList extends Component {
     this.props.dispatch({ type: "GET_ALL_FAVORITES" });
     // console.log(this.props.reduxState.giphyFavorites);
   }
+// comment to save???
 
   render() {
     return (
