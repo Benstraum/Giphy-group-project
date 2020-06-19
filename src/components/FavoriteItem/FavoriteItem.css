@@ -1,0 +1,30 @@
+/* .categoryBox {
+  margin-top: 4px;
+} */
+
+.buttons {
+  margin-bottom: 2px;
+}
+
+.blue{
+    height: 20px;
+}
+
+.red{
+    height: 20px;
+    
+}
+
+.favouriteGif {
+  margin: auto;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.selectBox{
+    height: 20px;
+}
+/* 
+.dropdown{
+  height: 200px
+} */
